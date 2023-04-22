@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double lado1;
+        double lado2;
+        Rectangulo rectangulo1 = new Rectangulo(4, 6);
+        System.out.println("cargue los lados 1 y 2 de un rectangulo");
+        lado1= sc.nextDouble();
+        lado2= sc.nextDouble();
+        Rectangulo rectangulo2= new Rectangulo(lado1,lado2);
+        double areaRectangulo2 = rectangulo2.calcularArea();
+        double areaRectangulo1 = rectangulo1.calcularArea();
+        System.out.println("El área del rectángulo es: " + areaRectangulo2);
+        System.out.println("este es el pedido por defecto con los lados 4 y 6 :");
+        System.out.println("El área del rectángulo es: " + areaRectangulo1);
+    }
+}
+
+-------------------------------------------------------------------------------------
+
+
+public class Rectangulo {
+    private double lado1;
+    private double lado2;
+
+    public Rectangulo(double lado1, double lado2) {
+        this.lado1 = lado1;
+        this.lado2 = lado2;
+    }
+    public double calcularArea() {
+        double area = lado1 * lado2;
+        return area;
+    }
+}

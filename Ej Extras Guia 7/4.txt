@@ -1,0 +1,63 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double saldo;
+        String titular;
+        System.out.print("cargue el nommbre del titular ");
+        titular=sc.nextLine();
+        System.out.print("cargue el saldo que tiene ");
+        saldo=sc.nextDouble();
+        Cuenta cuenta =  new Cuenta(saldo,titular);
+        System.out.println("desea retirar dinero? s/n");
+        String op= sc.next();
+        switch (op){
+            case "s":
+            case "S":
+                     cuenta.retirarDinero();
+                     break;
+            default:
+                System.out.println("hasta luego");
+        }
+    }
+}
+
+
+------------------------------------------------------------------------------
+
+
+
+import java.util.Scanner;
+public class Cuenta {
+    private String titular;
+    private double saldo;
+    public Cuenta(double saldo,String titular) {
+        this.titular=titular;
+        this.saldo=saldo;
+    }
+    public String getTitular() {
+        return titular;
+    }
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+    public double getSaldo() {
+        return saldo;
+    }
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+  public void retirarDinero(){
+      Scanner sc = new Scanner(System.in);
+      System.out.println("su saldo es de: "+saldo);
+      System.out.print("digite cual el monto que desea retirar ");
+      double retiro=sc.nextDouble();
+      if(retiro<=saldo){
+          saldo=saldo-retiro;
+          System.out.println("su saldo actual es de: "+saldo);
+      }else {
+          System.out.println("ERROR: no puede retirar mas de lo que dispone");
+      }
+
+  }
+}

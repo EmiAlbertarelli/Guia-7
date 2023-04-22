@@ -1,0 +1,50 @@
+public class Main {
+    public static void main(String[] args) {
+     Libro libro = new Libro();
+     libro.cargarLibro();
+        System.out.println();
+     libro.mostrarLibro();
+    }
+}
+
+----------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Libro {
+    public int isbn;
+    public String titulo;
+    public String autor;
+    public int nPaginas;
+
+    public Libro() {
+    }
+    public Libro(int isbn, String titulo, String autor, int nPaginas) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.nPaginas = nPaginas;
+    }
+     public void cargarLibro(){
+         Scanner sc= new Scanner(System.in);
+         System.out.print("cargue el codigo del libro ");
+         isbn=sc.nextInt();
+         sc.nextLine();
+         System.out.print("cargue el titulo del libro ");
+         titulo=sc.nextLine();
+         System.out.print("cargue el autor del libro ");
+         autor=sc.nextLine();
+         System.out.print("cargue la carntidad de paguinas del libro ");
+         nPaginas=sc.nextInt();
+
+     }
+    public void mostrarLibro(){
+        System.out.println("Libro" +
+                "\ncodigo del libro= " + isbn +
+                "\ntitulo del libro= " + titulo + '\'' +
+                "\nautor del libro= " + autor + '\'' +
+                "\nnumeros de paginas del libro= " + nPaginas);
+    }
+}
+
+

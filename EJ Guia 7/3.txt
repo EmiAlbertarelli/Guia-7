@@ -1,0 +1,83 @@
+
+public class Main {
+
+    public static void main(String[] args) {
+     Operaccion op1 = new Operaccion();
+     op1.crearOperacion();
+     int suma=op1.sumar();
+     int resta=op1.restar();
+     int multiplicar=op1.multiplicar();
+     double dividir= op1.dividir();
+     System.out.println("la suma es: "+suma+
+                "\nla resta es: "+resta+
+                "\nla multiplicacion es: "+multiplicar+
+                "\nla division es: "+dividir); 
+    }
+}
+
+----------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+public class Operaccion {
+    private int numero1;
+    private int numero2;
+
+    public Operaccion(int numero1, int numero2) {
+        this.numero1 = numero1;
+        this.numero2 = numero2;
+    }
+
+    public Operaccion() {
+    }
+
+    public int getNumero1() {
+        return numero1;
+    }
+
+    public void setNumero1(int numero1) {
+        this.numero1 = numero1;
+    }
+
+    public int getNumero2() {
+        return numero2;
+    }
+
+    public void setNumero2(int numero2) {
+        this.numero2 = numero2;
+    }
+    public void crearOperacion(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("cargue el valor del numero 1: ");
+        int num1=sc.nextInt();
+        System.out.print("cargue el valor del numero 2: ");
+        int num2=sc.nextInt();
+        this.numero1=num1;
+        this.numero2=num2;
+    }
+    public int sumar(){
+        return numero1+numero2;
+    }
+    public int restar(){
+        return numero1-numero2;
+    }
+    public int multiplicar(){
+        if (numero2!=0 && numero1!=0){
+            return numero1*numero2;
+        }else{
+            System.out.println("ERROR");
+            return 0;
+        }
+    }
+    public double dividir(){
+        if (numero2!=0){
+            return (double)numero1/numero2;
+        }else{
+            System.out.println("ERROR: No se puede dividir por cero.");
+            return 0;
+        }
+    }
+
+
+}

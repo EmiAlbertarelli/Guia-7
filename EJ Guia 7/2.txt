@@ -1,0 +1,42 @@
+
+public class Main {
+
+    public static void main(String[] args) {
+    Circunferencia c1=new Circunferencia(0);
+    c1.crearCircunferencia();
+        System.out.println("el area es: "+c1.Area());
+        System.out.println("el perimetro es: "+c1.Perimetro());
+    }
+}
+
+
+---------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+public class Circunferencia {
+    private  double radio;
+    public Circunferencia(double radio) {
+        this.radio = radio;
+    }
+    public double getRadio() {
+        return radio;
+    }
+    public void setRadio(double radio) {
+        this.radio = radio;
+    }
+    public void crearCircunferencia(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("cargue el radio ");
+        double radio=sc.nextDouble();
+        this.radio= radio;
+    }
+  public double Area(){
+        return (Math.PI * (radio * radio));
+  }
+  public double Perimetro(){
+        return 2 * Math.PI * radio;
+  }
+
+}

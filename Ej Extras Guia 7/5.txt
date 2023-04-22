@@ -1,0 +1,67 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int edad;
+        System.out.println("cargue los datos del empleado:");
+        System.out.print("ingrese su Nombre: ");
+        String nombre=sc.nextLine();
+        do {
+            System.out.print("ingrese la edad mayor o igual a 18 ");
+             edad= sc.nextInt();
+        }while(edad<17);
+        System.out.print("ingrese su salario ");
+        double salario= sc.nextDouble();
+        Empleado e1= new Empleado(nombre,edad,salario);
+        e1.calcularAumento();
+        System.out.println(e1.toString());
+    }
+}
+
+
+------------------------------------------------------------------------------
+
+
+
+public class Empleado {
+    private String nombre;
+    private int edad;
+    private double salario;
+    public Empleado(String nombre, int edad, double salario) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.salario = salario;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public int getEdad() {
+        return edad;
+    }
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+    public double getSalario() {
+        return salario;
+    }
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+    public void calcularAumento(){
+        if (edad>=30){
+            salario=salario*1.10;
+        }else {
+            salario=salario*1.05;
+        }
+    }
+    @Override
+    public String toString() {
+        return "Empleado " +
+                "\nNombre: "+nombre+
+                "\nEdad: "+edad+
+                "\nSaldo: "+salario;
+    }
+}

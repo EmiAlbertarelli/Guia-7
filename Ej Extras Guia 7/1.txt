@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String titulo;
+        String autor;
+        System.out.print("Cargue el titulo de la cancion 1 ");
+
+        titulo=sc.nextLine();
+        System.out.print("Cargue el autor de la cancion 1 ");
+        autor=sc.nextLine();
+        Cancion c1 = new Cancion(titulo,autor);
+        System.out.println("el titulo es: "+c1.getTitulo());
+        System.out.println("el autor es: "+c1.getAutor());
+
+        System.out.println();
+
+        Cancion c2 = new Cancion();
+        System.out.print("Cargue el titulo de la cancion 2 ");
+        titulo=sc.nextLine();
+        System.out.print("Cargue el autor de la cancion 2 ");
+        autor=sc.nextLine();
+        c2.setAutor(autor);
+        c2.setTitulo(titulo);
+        System.out.println("el titulo es: "+c2.getTitulo());
+        System.out.println("el autor es: "+c2.getAutor());
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+
+public class Cancion {
+    private String titulo;
+    private String autor;
+
+    public Cancion() {
+        this.titulo="";
+        this.autor="";
+    }
+
+    public Cancion(String titulo, String autor) {
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+}

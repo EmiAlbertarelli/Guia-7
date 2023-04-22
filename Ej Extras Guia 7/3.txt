@@ -1,0 +1,56 @@
+public class Main {
+    public static void main(String[] args) {
+        Juego j = new Juego();
+        j.adivinaNumero();
+    }
+}
+
+----------------------------------------------------------------
+
+
+
+import java.util.Scanner;
+
+public class Juego {
+    private int numero;
+    public Juego() {
+    }
+    public Juego(int numero) {
+        this.numero = numero;
+    }
+    public int getNumero() {
+        return numero;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    public void adivinaNumero(){
+        Scanner sc = new Scanner(System.in);
+        boolean verificacion=false;
+        int num;
+        System.out.print("elije un numero para que adivinen ");
+        numero=sc.nextInt();
+        System.out.print("Digite la cantidad de intentos que tendra ");
+        int intentos=sc.nextInt();
+        System.out.println("ingrese el numero a buscar ");
+        while(verificacion==false){
+            System.out.println("tiene "+(intentos)+" intentos");
+            num= sc.nextInt();
+            intentos--;
+            if (num>numero){
+                System.out.println("ingrese un numero mas chico");
+            } else if (num<numero) {
+                System.out.println("ingrese un numero mas grande");
+            }
+            if (num==numero){
+                System.out.println("felicidades gano");
+                verificacion=true;
+                break;
+            }
+            if (intentos==0){
+                System.out.println("lastimas perdio");
+                break;
+            }
+        }
+    }
+}
